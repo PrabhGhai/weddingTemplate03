@@ -1711,7 +1711,7 @@
 
   <main class="wedding-hero">
 
-    <video class="hero-video" muted preload="auto" playsinline aria-hidden="true" tabindex="-1">
+    <video class="hero-video" autoplay muted preload="auto" playsinline webkit-playsinline aria-hidden="true" tabindex="-1">
       <source src="./video_1.mp4" type="video/mp4" />
     </video>
     <audio class="wedding-audio" src="./Tu%20Te%20Main.mp3" preload="auto" loop aria-hidden="true"></audio>
@@ -1813,7 +1813,7 @@
     document.addEventListener("click", () => {
       heroVideo.currentTime = 0;
       weddingAudio.currentTime = 0;
-      heroVideo.play();
+      heroVideo.play().catch(() => {});
       weddingAudio.play().catch(() => {});
     }, { once: true });
   </script>
