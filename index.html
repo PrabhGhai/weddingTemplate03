@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en" class="invitation-locked">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Maninder Singh & Amanpreet Kaur</title>
+
+  <!-- Elegant wedding fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html.invitation-locked {
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
+    body.invitation-locked {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
+    body {
+      background: #1a1612;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .wedding-hero {
+      position: relative;
+
+      width: 100%;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background: #1a1612;
+
+      isolation: isolate;
+    }
+
+    /* Warm cinematic overlay */
+
+    .wedding-hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(91, 39, 15, 0.12) 0%,
+          rgba(255, 209, 126, 0.02) 35%,
+          rgba(65, 30, 13, 0.10) 100%
+        );
+
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .top-decoration-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .invitation-content {
+      position: relative;
+      z-index: 3;
+
+      width: min(100%, 650px);
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 0 18px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       KHANDA
+    ========================= */
+
+    .khanda-image {
+      position: absolute;
+      top: 10.5%;
+      left: 50%;
+      width: min(55vw, 430px);
+      height: auto;
+      transform: translate(-50%, 12px);
+      z-index: 6;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .36, 1);
+    }
+
+
+    /* =========================
+       SMALL HEADING
+    ========================= */
+
+    .wedding-label {
+      position: absolute;
+      top: 20.5%;
+      left: 0;
+      width: 100%;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(15px, 2.7vw, 21px);
+      letter-spacing: 5px;
+      font-weight: 600;
+      color: #71470e;
+      text-transform: uppercase;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,.55);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .36, 1);
+    }
+
+
+    /* =========================
+       COUPLE NAMES
+    ========================= */
+
+    .names {
+      position: absolute;
+      top: 24.3%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      color: #721b1b;
+
+      text-shadow:
+        0 1px 0 rgba(255, 239, 200, .65),
+        0 2px 5px rgba(60, 20, 5, .12);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .name {
+
+      font-family: "Great Vibes", cursive;
+
+      font-size: clamp(46px, 9vw, 80px);
+      line-height: .95;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+
+
+    /* =========================
+       AMPERSAND + ORNAMENT
+    ========================= */
+
+    .couple-divider {
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: clamp(10px, 2vw, 15px);
+      width: min(80%, 520px);
+      margin: 3px 0 0;
+    }
+
+    .divider-line {
+
+      height: 1px;
+
+      flex: 1;
+
+      max-width: 120px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #a67527,
+          #d3a34b
+        );
+    }
+
+    .divider-line.right {
+
+      background:
+        linear-gradient(
+          90deg,
+          #d3a34b,
+          #a67527,
+          transparent
+        );
+    }
+
+    .ampersand {
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(27px, 4.4vw, 34px);
+
+      color: #80500f;
+
+      line-height: 1;
+    }
+
+
+    /* =========================
+       LOWER ORNAMENT
+    ========================= */
+
+    .floral-divider {
+      position: absolute;
+      top: 38.2%;
+      left: 50%;
+      display: block;
+      width: min(38vw, 300px);
+      height: auto;
+      margin: 0;
+      transform: translate(-50%, 12px);
+      opacity: 0;
+      transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .wedding-hero.is-revealing .khanda-image,
+    .wedding-hero.is-revealing .wedding-label,
+    .wedding-hero.is-revealing .names,
+    .wedding-hero.is-revealing .floral-divider {
+      opacity: 1;
+    }
+
+    .wedding-hero.is-revealing .khanda-image,
+    .wedding-hero.is-revealing .floral-divider {
+      transform: translate(-50%, 0);
+    }
+
+    .wedding-hero.is-revealing .wedding-label,
+    .wedding-hero.is-revealing .names {
+      transform: translateY(0);
+    }
+
+    .wedding-hero.is-revealing .wedding-label {
+      transition-delay: .35s;
+    }
+
+    .wedding-hero.is-revealing .names {
+      transition-delay: .7s;
+    }
+
+    .wedding-hero.is-revealing .floral-divider {
+      transition-delay: 1.05s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .khanda-image,
+      .wedding-label,
+      .names,
+      .floral-divider {
+        transition-duration: .01ms;
+      }
+    }
+
+
+    /* =========================
+       FLOATING PETALS
+    ========================= */
+
+    .petals {
+      position: absolute;
+      z-index: 2;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      overflow: hidden;
+    }
+
+    .petal {
+
+      position: absolute;
+
+      width: 8px;
+      height: 14px;
+
+      background: #c95732;
+
+      border-radius: 70% 20% 70% 20%;
+
+      opacity: .75;
+
+      animation: fall linear infinite;
+    }
+
+    .p1 {
+      left: 10%;
+      top: 20%;
+      animation-duration: 8s;
+    }
+
+    .p2 {
+      left: 78%;
+      top: 17%;
+      animation-duration: 11s;
+    }
+
+    .p3 {
+      left: 88%;
+      top: 38%;
+      animation-duration: 9s;
+    }
+
+    .p4 {
+      left: 18%;
+      top: 42%;
+      animation-duration: 12s;
+    }
+
+    .p5 {
+      left: 55%;
+      top: 12%;
+      animation-duration: 10s;
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes fall {
+
+      0% {
+        transform:
+          translateY(-30px)
+          rotate(0deg);
+      }
+
+      50% {
+        transform:
+          translateY(200px)
+          translateX(25px)
+          rotate(120deg);
+      }
+
+      100% {
+        transform:
+          translateY(450px)
+          translateX(-20px)
+          rotate(260deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes subtleFloat {
+
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .name {
+        font-size: clamp(42px, 9vw, 72px);
+      }
+
+      .wedding-label {
+        letter-spacing: 3px;
+      }
+
+    }
+
+    @media (orientation: landscape) and (min-width: 601px) {
+      .khanda-image {
+        top: 2%;
+        width: min(23vw, 210px);
+      }
+
+      .wedding-label {
+        top: 22%;
+        font-size: clamp(14px, 2vw, 18px);
+        letter-spacing: clamp(3px, .45vw, 5px);
+      }
+
+      .names {
+        top: 30%;
+      }
+
+      .name {
+        font-size: clamp(42px, 7vw, 78px);
+      }
+
+      .couple-divider {
+        gap: 10px;
+        margin-top: 0;
+      }
+
+      .ampersand {
+        font-size: clamp(24px, 3vw, 30px);
+      }
+
+      .floral-divider {
+        top: 74%;
+        width: min(20vw, 160px);
+      }
+    }
+
+    /* =========================
+       REMAINING INVITATION
+    ========================= */
+
+    .invite-site {
+      --invite-burgundy: #721b1b;
+      --invite-gold: #8c5a13;
+      --invite-warm-gold: #a36a15;
+      --invite-champagne: #f8e8c8;
+      --invite-ivory: #fff9ec;
+      --invite-sage: #65704b;
+      --invite-terracotta: #b85c35;
+      --invite-brown: #3e2818;
+      color: var(--invite-brown);
+      background: var(--invite-ivory);
+      font-family: "Montserrat", sans-serif;
+      overflow: hidden;
+    }
+
+    .invite-site *,
+    .invite-site *::before,
+    .invite-site *::after {
+      box-sizing: border-box;
+    }
+
+    .invite-section {
+      position: relative;
+      padding: 112px 24px;
+      overflow: hidden;
+    }
+
+    .invite-shell {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .invite-eyebrow {
+      display: inline-block;
+      color: var(--invite-gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      line-height: 1.8;
+      text-transform: uppercase;
+    }
+
+    .invite-heading {
+      margin-top: 12px;
+      color: var(--invite-burgundy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .invite-heading em {
+      color: var(--invite-gold);
+      font-family: "Great Vibes", cursive;
+      font-size: 1.2em;
+      font-weight: 400;
+    }
+
+    .invite-heading--light {
+      color: var(--invite-ivory);
+    }
+
+    .invite-center-heading {
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .invite-celebrations .invite-ornament {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .invite-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: min(240px, 65%);
+      margin: 24px 0;
+      color: var(--invite-gold);
+    }
+
+    .invite-ornament::before,
+    .invite-ornament::after {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, currentColor);
+      content: "";
+    }
+
+    .invite-ornament::after {
+      transform: scaleX(-1);
+    }
+
+    .invite-ornament img {
+      display: block;
+      width: 30px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .invite-reveal {
+      opacity: 1;
+      transform: none;
+      transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .invite-site.has-reveal .invite-reveal:not(.is-visible) {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .invite-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .invite-story {
+      background-color: var(--invite-ivory);
+      background-image:
+        linear-gradient(45deg, transparent 48%, rgba(140, 90, 19, .035) 49%, rgba(140, 90, 19, .035) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(114, 27, 27, .025) 49%, rgba(114, 27, 27, .025) 51%, transparent 52%);
+      background-size: 28px 28px;
+    }
+
+    .invite-story__layout {
+      display: grid;
+      grid-template-columns: minmax(280px, .95fr) minmax(320px, 1.05fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 112px);
+    }
+
+    .invite-story__image {
+      position: relative;
+      width: min(100%, 450px);
+      height: 540px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid rgba(140, 90, 19, .55);
+      border-radius: 48% 48% 3px 3px;
+    }
+
+    .invite-story__image::before {
+      position: absolute;
+      z-index: 1;
+      inset: 20px;
+      border: 1px solid rgba(255, 249, 236, .8);
+      border-radius: 48% 48% 2px 2px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .invite-story__image img:first-child {
+      width: 100%;
+      height: 100%;
+      border-radius: 48% 48% 2px 2px;
+      object-fit: cover;
+    }
+
+    .invite-parallax {
+      transform: translate3d(0, var(--invite-parallax-y, 0px), 0) scale(1.045);
+      will-change: transform;
+    }
+
+    .invite-story__flower {
+      position: absolute;
+      z-index: 2;
+      right: -28px;
+      bottom: 44px;
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(62, 40, 24, .16));
+    }
+
+    .invite-story__copy {
+      max-width: 490px;
+    }
+
+    .invite-story__copy > p {
+      max-width: 440px;
+      margin-top: 23px;
+      color: #5f4a37;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      line-height: 1.55;
+    }
+
+    .invite-story__couple {
+      margin-top: 12px;
+      color: var(--invite-burgundy);
+      font-family: "Great Vibes", cursive;
+      font-size: 39px;
+      line-height: 1.2;
+    }
+
+    .invite-story__couple span {
+      color: var(--invite-gold);
+    }
+
+    .invite-culture {
+      min-height: 650px;
+      display: grid;
+      align-items: center;
+      color: var(--invite-ivory);
+      background-image:
+        linear-gradient(90deg, rgba(37, 26, 16, .77), rgba(37, 26, 16, .3) 62%, rgba(37, 26, 16, .18)),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=88");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .invite-culture::after {
+      position: absolute;
+      z-index: 2;
+      inset: 14px;
+      border: 1px solid rgba(248, 232, 200, .42);
+      content: "";
+      pointer-events: none;
+    }
+
+    .invite-culture__backdrop {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .invite-culture__backdrop video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 57%;
+    }
+
+    .invite-culture__backdrop::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(37, 26, 16, .76), rgba(37, 26, 16, .31) 62%, rgba(37, 26, 16, .2));
+      content: "";
+    }
+
+    .invite-culture__copy {
+      position: relative;
+      z-index: 1;
+      max-width: 660px;
+      padding: 48px 0;
+    }
+
+    .invite-culture .invite-eyebrow {
+      color: var(--invite-champagne);
+    }
+
+    .invite-culture__copy h2 {
+      max-width: 620px;
+      margin-top: 14px;
+      color: var(--invite-ivory);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 60px;
+      font-weight: 500;
+      line-height: 1.02;
+    }
+
+    .invite-culture__copy p {
+      max-width: 560px;
+      margin-top: 20px;
+      color: rgba(255, 249, 236, .92);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    .invite-marquee {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      padding: 15px 0;
+      border-top: 1px solid rgba(248, 232, 200, .4);
+      border-bottom: 1px solid rgba(248, 232, 200, .4);
+      color: var(--invite-champagne);
+      font-size: 10px;
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+
+    .invite-marquee__track {
+      display: flex;
+      width: max-content;
+      animation: invite-marquee 42s linear infinite;
+    }
+
+    .invite-marquee__track span {
+      padding-right: 36px;
+    }
+
+    @keyframes invite-marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    .invite-celebrations {
+      background: #f4ead7;
+      background-image: radial-gradient(rgba(140, 90, 19, .12) .65px, transparent .65px);
+      background-size: 18px 18px;
+    }
+
+    .invite-event-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .invite-event {
+      position: relative;
+      padding: 10px 10px 22px;
+      border: 1px solid rgba(140, 90, 19, .45);
+      background: var(--invite-ivory);
+      transition: transform .45s ease, border-color .45s ease;
+    }
+
+    .invite-event:hover {
+      transform: translateY(-5px);
+      border-color: var(--invite-burgundy);
+    }
+
+    .invite-event__image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--invite-champagne);
+    }
+
+    .invite-event__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s ease;
+    }
+
+    .invite-event:hover .invite-event__image img {
+      transform: scale(1.04);
+    }
+
+    .invite-event__copy {
+      padding: 19px 9px 0;
+    }
+
+    .invite-event__copy h3 {
+      color: var(--invite-burgundy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 29px;
+      font-weight: 500;
+    }
+
+    .invite-event__rule {
+      width: 40px;
+      height: 1px;
+      margin: 12px 0;
+      background: var(--invite-gold);
+    }
+
+    .invite-event__copy p {
+      margin-top: 7px;
+      color: #705b44;
+      font-size: 10px;
+      letter-spacing: 1px;
+      line-height: 1.8;
+      text-transform: uppercase;
+    }
+
+    .invite-event__actions {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .invite-event__action {
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 9px;
+      border: 1px solid rgba(140, 90, 19, .72);
+      color: var(--invite-burgundy);
+      background: transparent;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 1.4;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .invite-event__action:hover {
+      color: var(--invite-ivory);
+      background: var(--invite-burgundy);
+    }
+
+    .invite-event--anand {
+      border-color: var(--invite-gold);
+      background-color: #fffdf5;
+    }
+
+    .invite-event--anand .invite-event__image::after {
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255, 249, 236, .85);
+      content: "";
+    }
+
+    .invite-gallery {
+      background: var(--invite-ivory);
+    }
+
+    .invite-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: 245px 245px 245px;
+      gap: 16px;
+    }
+
+    .invite-gallery-item {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      padding: 8px;
+      border: 1px solid rgba(140, 90, 19, .45);
+      background: #fffdf7;
+    }
+
+    .invite-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .invite-gallery-item:nth-child(1) {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+      border-radius: 48% 48% 3px 3px;
+    }
+
+    .invite-gallery-item:nth-child(2) {
+      grid-column: 3;
+      grid-row: 1;
+      transform: rotate(1.3deg);
+    }
+
+    .invite-gallery-item:nth-child(3) {
+      grid-column: 4;
+      grid-row: 1 / span 2;
+      border-radius: 48% 48% 3px 3px;
+    }
+
+    .invite-gallery-item:nth-child(4) {
+      grid-column: 3;
+      grid-row: 2;
+      transform: rotate(-1.2deg);
+    }
+
+    .invite-gallery-item:nth-child(5) {
+      grid-column: 1 / span 2;
+      grid-row: 3;
+      transform: rotate(-.7deg);
+    }
+
+    .invite-gallery-item:nth-child(6) {
+      grid-column: 3 / span 2;
+      grid-row: 3;
+      border-radius: 3px 3px 48% 48%;
+    }
+
+    .invite-gallery-item figcaption {
+      position: absolute;
+      right: 9px;
+      bottom: 10px;
+      left: 9px;
+      padding: 7px 5px;
+      color: #fff9ec;
+      background: linear-gradient(transparent, rgba(38, 25, 15, .7));
+      font-family: "Great Vibes", cursive;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .invite-heritage {
+      color: var(--invite-ivory);
+      background: var(--invite-burgundy);
+      background-image: linear-gradient(110deg, rgba(62, 40, 24, .22), transparent 60%);
+    }
+
+    .invite-heritage .invite-heading {
+      color: var(--invite-ivory);
+    }
+
+    .invite-heritage .invite-eyebrow {
+      color: var(--invite-champagne);
+    }
+
+    .invite-heritage-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      border-top: 1px solid rgba(248, 232, 200, .45);
+      border-bottom: 1px solid rgba(248, 232, 200, .45);
+    }
+
+    .invite-heritage-item {
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 12px;
+      text-align: center;
+    }
+
+    .invite-heritage-item + .invite-heritage-item {
+      border-left: 1px solid rgba(248, 232, 200, .32);
+    }
+
+    .invite-heritage-mark {
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--invite-champagne);
+      border-radius: 50%;
+      color: var(--invite-champagne);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 37px;
+    }
+
+    .invite-heritage-item h3 {
+      margin-top: 14px;
+      color: var(--invite-champagne);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      font-weight: 500;
+    }
+
+    .invite-heritage-item p {
+      margin-top: 5px;
+      color: rgba(255, 249, 236, .76);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    .invite-families {
+      background-color: #fbf3e3;
+      background-image: repeating-linear-gradient(45deg, transparent 0 23px, rgba(101, 112, 75, .035) 24px 25px, transparent 26px 48px);
+    }
+
+    .invite-family-grid {
+      display: grid;
+      grid-template-columns: 1fr 90px 1fr;
+      align-items: center;
+      gap: 36px;
+      text-align: center;
+    }
+
+    .invite-family h3 {
+      color: var(--invite-burgundy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      font-weight: 500;
+    }
+
+    .invite-family p {
+      margin-top: 12px;
+      color: var(--invite-gold);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .invite-family strong {
+      display: block;
+      margin-top: 12px;
+      color: #5f4a37;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .invite-family-seal {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .invite-location {
+      color: var(--invite-ivory);
+      background: #3b3525;
+    }
+
+    .invite-location .invite-heading {
+      color: var(--invite-ivory);
+    }
+
+    .invite-location .invite-eyebrow {
+      color: var(--invite-champagne);
+    }
+
+    .invite-location-card {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      overflow: hidden;
+      border: 1px solid rgba(248, 232, 200, .65);
+      background: var(--invite-brown);
+    }
+
+    .invite-location-card__image {
+      min-height: 390px;
+      background-image:
+        linear-gradient(90deg, rgba(47, 33, 20, .05), rgba(47, 33, 20, .45)),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1500&q=85");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .invite-location-card__copy {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 48px;
+      background: #46331f;
+    }
+
+    .invite-location-card__copy::after {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 105px;
+      height: 70px;
+      border-right: 1px solid rgba(248, 232, 200, .25);
+      border-bottom: 1px solid rgba(248, 232, 200, .25);
+      content: "";
+    }
+
+    .invite-location-card h3 {
+      color: var(--invite-champagne);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 37px;
+      font-weight: 500;
+    }
+
+    .invite-location-card p {
+      margin-top: 13px;
+      color: rgba(255, 249, 236, .8);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .invite-seal-button {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 47px;
+      margin-top: 25px;
+      padding: 0 22px;
+      border: 1px solid var(--invite-champagne);
+      outline: 1px solid rgba(248, 232, 200, .32);
+      outline-offset: 4px;
+      color: var(--invite-champagne);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: color .25s ease, background .25s ease;
+    }
+
+    .invite-seal-button:hover {
+      color: var(--invite-burgundy);
+      background: var(--invite-champagne);
+    }
+
+    .invite-rsvp {
+      background: #eee2cd;
+      background-image: radial-gradient(rgba(140, 90, 19, .1) .7px, transparent .7px);
+      background-size: 20px 20px;
+    }
+
+    .invite-rsvp-card {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 64px;
+      border: 1px solid rgba(140, 90, 19, .65);
+      outline: 1px solid rgba(140, 90, 19, .24);
+      outline-offset: 7px;
+      background: var(--invite-ivory);
+      text-align: center;
+    }
+
+    .invite-rsvp-card::before,
+    .invite-rsvp-card::after {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--invite-gold);
+      border-style: solid;
+      content: "";
+    }
+
+    .invite-rsvp-card::before {
+      top: 8px;
+      left: 8px;
+      border-width: 1px 0 0 1px;
+    }
+
+    .invite-rsvp-card::after {
+      right: 8px;
+      bottom: 8px;
+      border-width: 0 1px 1px 0;
+    }
+
+    .invite-rsvp-card h2 {
+      margin-top: 8px;
+      color: var(--invite-burgundy);
+      font-family: "Great Vibes", cursive;
+      font-size: 54px;
+      font-weight: 400;
+    }
+
+    .invite-rsvp-card > p {
+      margin-top: 5px;
+      color: #705b44;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+    }
+
+    .invite-rsvp-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+      margin-top: 32px;
+      text-align: left;
+    }
+
+    .invite-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .invite-field label,
+    .invite-rsvp-form legend {
+      color: var(--invite-gold);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .invite-field input,
+    .invite-field select {
+      width: 100%;
+      min-height: 43px;
+      padding: 0 11px;
+      border: 0;
+      border-bottom: 1px solid rgba(140, 90, 19, .55);
+      border-radius: 0;
+      color: var(--invite-brown);
+      background: transparent;
+      font: inherit;
+      font-size: 12px;
+    }
+
+    .invite-rsvp-form fieldset {
+      grid-column: 1 / -1;
+      padding: 0;
+      border: 0;
+    }
+
+    .invite-rsvp-form legend {
+      margin-bottom: 12px;
+    }
+
+    .invite-rsvp-choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .invite-rsvp-choice {
+      min-height: 44px;
+      flex: 1 1 200px;
+      padding: 0 12px;
+      border: 1px solid var(--invite-gold);
+      color: var(--invite-burgundy);
+      background: transparent;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .invite-rsvp-choice:hover,
+    .invite-rsvp-choice[aria-pressed="true"] {
+      color: var(--invite-ivory);
+      background: var(--invite-burgundy);
+    }
+
+    .invite-rsvp-status {
+      min-height: 22px;
+      grid-column: 1 / -1;
+      color: var(--invite-sage);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .invite-calendar-dialog {
+      width: min(450px, calc(100% - 32px));
+      max-width: none;
+      margin: auto;
+      padding: 38px;
+      border: 1px solid rgba(140, 90, 19, .75);
+      color: var(--invite-brown);
+      background: var(--invite-ivory);
+    }
+
+    .invite-calendar-dialog::backdrop {
+      background: rgba(35, 24, 17, .72);
+    }
+
+    .invite-calendar-dialog h2 {
+      color: var(--invite-burgundy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+    .invite-calendar-dialog > p {
+      margin: 5px 0 22px;
+      color: var(--invite-gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 21px;
+    }
+
+    .invite-calendar-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .invite-calendar-form label {
+      display: grid;
+      gap: 7px;
+      color: var(--invite-gold);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .invite-calendar-form input {
+      width: 100%;
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 1px solid rgba(140, 90, 19, .42);
+      border-radius: 0;
+      color: var(--invite-brown);
+      background: #fffdf7;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .invite-calendar-dialog__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 5px;
+    }
+
+    .invite-calendar-dialog__actions button {
+      min-height: 42px;
+      flex: 1 1 130px;
+      border: 1px solid var(--invite-gold);
+      color: var(--invite-burgundy);
+      background: transparent;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .invite-calendar-dialog__actions button[type="submit"] {
+      color: var(--invite-ivory);
+      background: var(--invite-burgundy);
+    }
+
+    .invite-calendar-status {
+      min-height: 20px;
+      color: var(--invite-sage);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+    }
+
+    .invite-finale {
+      min-height: 760px;
+      display: grid;
+      place-items: center;
+      color: var(--invite-ivory);
+      text-align: center;
+      background-image:
+        linear-gradient(rgba(45, 30, 17, .52), rgba(45, 30, 17, .48)),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=88");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .invite-finale__copy {
+      position: relative;
+      z-index: 1;
+      padding: 50px 24px;
+    }
+
+    .invite-finale__copy > p:first-child {
+      color: var(--invite-champagne);
+      font-size: 10px;
+      letter-spacing: 4px;
+      line-height: 1.8;
+    }
+
+    .invite-finale h2 {
+      margin-top: 22px;
+      color: var(--invite-ivory);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 46px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 1.15;
+    }
+
+    .invite-finale__names {
+      margin-top: 24px;
+      color: var(--invite-champagne);
+      font-family: "Great Vibes", cursive;
+      font-size: 48px;
+      line-height: 1.18;
+    }
+
+    .invite-finale__names span {
+      display: block;
+      color: var(--invite-champagne);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+    }
+
+    .invite-finale__copy > p:last-child {
+      margin-top: 21px;
+      color: rgba(255, 249, 236, .9);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+    }
+
+    .invite-footer {
+      position: relative;
+      padding: 54px 24px 30px;
+      color: var(--invite-champagne);
+      background: var(--invite-burgundy);
+      text-align: center;
+    }
+
+    .invite-footer__name {
+      color: var(--invite-champagne);
+      font-family: "Great Vibes", cursive;
+      font-size: 39px;
+    }
+
+    .invite-footer__note {
+      margin-top: 8px;
+      color: rgba(248, 232, 200, .85);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+    }
+
+    .invite-footer__social {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+      color: var(--invite-champagne);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    .invite-footer__social svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+    }
+
+    .invite-footer__social:hover {
+      color: #fff9ec;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .invite-footer__copyright {
+      margin-top: 30px;
+      padding-top: 17px;
+      border-top: 1px solid rgba(248, 232, 200, .25);
+      color: rgba(248, 232, 200, .65);
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .invite-event-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .invite-heritage-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .invite-heritage-item:nth-child(4) {
+        border-left: 0;
+      }
+
+      .invite-heritage-item:nth-child(n + 4) {
+        border-top: 1px solid rgba(248, 232, 200, .32);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .invite-section {
+        padding: 78px 20px;
+      }
+
+      .invite-heading {
+        font-size: 40px;
+      }
+
+      .invite-center-heading {
+        margin-bottom: 34px;
+      }
+
+      .invite-story__layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .invite-story__image {
+        width: min(84%, 360px);
+        height: 420px;
+      }
+
+      .invite-story__copy {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .invite-story__copy > p {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 22px;
+      }
+
+      .invite-ornament {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .invite-culture {
+        min-height: 610px;
+        padding: 72px 26px;
+        background-position: 58% center;
+      }
+
+      .invite-culture__copy h2 {
+        font-size: 43px;
+      }
+
+      .invite-culture__copy p {
+        font-size: 21px;
+      }
+
+      .invite-event-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .invite-event {
+        display: grid;
+        grid-template-columns: 42% 1fr;
+        align-items: stretch;
+        gap: 7px;
+        padding: 8px;
+      }
+
+      .invite-event__image {
+        height: auto;
+        min-height: 205px;
+      }
+
+      .invite-event__copy {
+        align-self: center;
+        padding: 12px;
+      }
+
+      .invite-event__copy h3 {
+        font-size: 25px;
+      }
+
+      .invite-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+        gap: 12px;
+      }
+
+      .invite-gallery-item:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+        height: 225px;
+        transform: none;
+      }
+
+      .invite-gallery-item:nth-child(1),
+      .invite-gallery-item:nth-child(6) {
+        height: 290px;
+      }
+
+      .invite-gallery-item:nth-child(3) {
+        border-radius: 3px 3px 48% 48%;
+      }
+
+      .invite-heritage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .invite-heritage-item {
+        min-height: 180px;
+        padding: 18px 7px;
+      }
+
+      .invite-heritage-item:nth-child(odd) {
+        border-left: 0;
+      }
+
+      .invite-heritage-item:nth-child(even) {
+        border-left: 1px solid rgba(248, 232, 200, .32);
+      }
+
+      .invite-heritage-item:nth-child(n + 3) {
+        border-top: 1px solid rgba(248, 232, 200, .32);
+      }
+
+      .invite-family-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .invite-family-seal {
+        width: 58px;
+        height: 58px;
+        justify-self: center;
+      }
+
+      .invite-family-seal + .invite-family {
+        order: 3;
+      }
+
+      .invite-location-card {
+        grid-template-columns: 1fr;
+      }
+
+      .invite-location-card__image {
+        min-height: 250px;
+      }
+
+      .invite-location-card__copy {
+        min-height: 280px;
+        padding: 32px;
+      }
+
+      .invite-rsvp-card {
+        padding: 45px 22px;
+      }
+
+      .invite-rsvp-form {
+        grid-template-columns: 1fr;
+      }
+
+      .invite-rsvp-form fieldset,
+      .invite-rsvp-status {
+        grid-column: 1;
+      }
+
+      .invite-rsvp-card h2 {
+        font-size: 47px;
+      }
+
+      .invite-finale {
+        min-height: 680px;
+      }
+
+      .invite-finale h2 {
+        font-size: 35px;
+      }
+
+      .invite-finale__names {
+        font-size: 42px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .invite-site *,
+      .invite-site *::before,
+      .invite-site *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body class="invitation-locked">
+
+  <main class="wedding-hero">
+
+    <video class="hero-video" muted preload="auto" playsinline aria-hidden="true" tabindex="-1">
+      <source src="./video_1.mp4" type="video/mp4" />
+    </video>
+    <audio class="wedding-audio" src="./Tu%20Te%20Main.mp3" preload="auto" loop aria-hidden="true"></audio>
+
+    <img class="top-decoration-image" src="./ele1.png" alt="" aria-hidden="true" />
+    <img class="khanda-image" src="./ele2.png" alt="" aria-hidden="true" />
+
+
+    <!-- =========================
+         FLOATING PETALS
+    ========================== -->
+
+    <div class="petals">
+
+      <span class="petal p1"></span>
+      <span class="petal p2"></span>
+      <span class="petal p3"></span>
+      <span class="petal p4"></span>
+      <span class="petal p5"></span>
+
+    </div>
+
+
+    <!-- =========================
+         INVITATION CONTENT
+    ========================== -->
+
+    <section class="invitation-content">
+
+
+      <!-- KHANDA -->
+
+      <!-- SMALL TITLE -->
+
+      <div class="wedding-label">
+        The Wedding Of
+      </div>
+
+
+      <!-- COUPLE NAMES -->
+
+      <div class="names">
+
+        <div class="name">
+          Maninder Singh
+        </div>
+
+
+        <div class="couple-divider">
+
+          <span class="divider-line"></span>
+
+          <span class="ampersand">&amp;</span>
+
+          <span class="divider-line right"></span>
+
+        </div>
+
+
+        <div class="name">
+          Amanpreet Kaur
+        </div>
+
+      </div>
+
+
+      <!-- LOWER ORNAMENT -->
+
+      <img class="floral-divider" src="./ele3.png" alt="" aria-hidden="true" />
+
+    </section>
+
+  </main>
+
+  <script>
+    const heroVideo = document.querySelector(".hero-video");
+    const weddingAudio = document.querySelector(".wedding-audio");
+    const weddingHero = document.querySelector(".wedding-hero");
+    const revealAt = 5.34;
+
+    const revealInvitation = () => {
+      if (heroVideo.currentTime >= revealAt) {
+        weddingHero.classList.add("is-revealing");
+        return;
+      }
+
+      if (!heroVideo.paused && !heroVideo.ended) {
+        requestAnimationFrame(revealInvitation);
+      }
+    };
+
+    heroVideo.addEventListener("playing", revealInvitation);
+
+    heroVideo.addEventListener("ended", () => {
+      document.documentElement.classList.remove("invitation-locked");
+      document.body.classList.remove("invitation-locked");
+    });
+
+    document.addEventListener("click", () => {
+      heroVideo.currentTime = 0;
+      weddingAudio.currentTime = 0;
+      heroVideo.play();
+      weddingAudio.play().catch(() => {});
+    }, { once: true });
+  </script>
+
+  <div class="invite-site">
+    <section class="invite-section invite-story" id="our-story" aria-labelledby="story-heading">
+      <div class="invite-shell invite-story__layout">
+        <figure class="invite-story__image invite-reveal">
+          <img class="invite-parallax" src="./couple_01.png" alt="A couple celebrating their wedding together" loading="lazy" />
+          <img class="invite-story__flower" src="./ele3.png" alt="" aria-hidden="true" loading="lazy" />
+        </figure>
+        <div class="invite-story__copy invite-reveal">
+          <span class="invite-eyebrow">Two hearts, one beautiful journey</span>
+          <h2 class="invite-heading" id="story-heading">Our <em>Story</em></h2>
+          <p>Every beautiful journey begins with a moment, a smile, a conversation - and a little bit of magic.</p>
+          <div class="invite-ornament" aria-hidden="true"><img src="./ele3.png" alt="" /></div>
+          <p class="invite-story__couple">Maninder Singh <span>&amp;</span><br />Amanpreet Kaur</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section invite-culture" aria-labelledby="culture-heading">
+      <div class="invite-culture__backdrop" aria-hidden="true">
+        <video class="invite-culture__still" muted playsinline preload="metadata" tabindex="-1">
+          <source src="./video_1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="invite-shell invite-culture__copy invite-reveal">
+        <span class="invite-eyebrow">Mitti &bull; Rishtey &bull; Khushiyan</span>
+        <h2 id="culture-heading">A Celebration Rooted in Punjab</h2>
+        <p>From the warmth of our homes to the fields that hold our memories, this celebration is a little piece of Punjab - filled with love, laughter and togetherness.</p>
+      </div>
+      <div class="invite-marquee" aria-label="Pind di khushboo, dil di khushi, navein rishte, purani yaadan">
+        <div class="invite-marquee__track" aria-hidden="true">
+          <span>PIND DI KHUSHBOO &bull; DIL DI KHUSHI &bull; NAVEIN RISHTE &bull; PURANI YAADAN &bull;</span>
+          <span>PIND DI KHUSHBOO &bull; DIL DI KHUSHI &bull; NAVEIN RISHTE &bull; PURANI YAADAN &bull;</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section invite-celebrations" id="celebrations" aria-labelledby="celebrations-heading">
+      <div class="invite-shell">
+        <header class="invite-center-heading invite-reveal">
+          <span class="invite-eyebrow">Let the celebrations begin</span>
+          <h2 class="invite-heading" id="celebrations-heading">The Wedding Celebrations</h2>
+          <div class="invite-ornament" aria-hidden="true"><img src="./ele3.png" alt="" /></div>
+        </header>
+        <div class="invite-event-grid">
+          <article class="invite-event invite-reveal">
+            <div class="invite-event__image"><img src="./img_01.png" alt="Maninder and Amanpreet at their Mehndi celebration" loading="lazy" /></div>
+            <div class="invite-event__copy"><h3>Mehndi</h3><div class="invite-event__rule"></div><p>DD Month YYYY</p><p>00:00 PM onwards</p><p>Venue Name, Punjab</p><div class="invite-event__actions"><button class="invite-event__action" type="button" data-calendar-event="Mehndi">Add to calendar</button><a class="invite-event__action" href="https://www.google.com/maps/search/?api=1&amp;query=Venue+Name%2C+Punjab%2C+India" target="_blank" rel="noreferrer">View directions</a></div></div>
+          </article>
+          <article class="invite-event invite-reveal">
+            <div class="invite-event__image"><img src="./img_02.png" alt="Maninder and Amanpreet celebrating at their Sangeet" loading="lazy" /></div>
+            <div class="invite-event__copy"><h3>Sangeet</h3><div class="invite-event__rule"></div><p>DD Month YYYY</p><p>00:00 PM onwards</p><p>Venue Name, Punjab</p><div class="invite-event__actions"><button class="invite-event__action" type="button" data-calendar-event="Sangeet">Add to calendar</button><a class="invite-event__action" href="https://www.google.com/maps/search/?api=1&amp;query=Venue+Name%2C+Punjab%2C+India" target="_blank" rel="noreferrer">View directions</a></div></div>
+          </article>
+          <article class="invite-event invite-event--anand invite-reveal">
+            <div class="invite-event__image"><img src="./img_03.png" alt="The Anand Karaj ceremony" loading="lazy" /></div>
+            <div class="invite-event__copy"><h3>Anand Karaj</h3><div class="invite-event__rule"></div><p>DD Month YYYY</p><p>00:00 PM onwards</p><p>Venue Name, Punjab</p><div class="invite-event__actions"><button class="invite-event__action" type="button" data-calendar-event="Anand Karaj">Add to calendar</button><a class="invite-event__action" href="https://www.google.com/maps/search/?api=1&amp;query=Venue+Name%2C+Punjab%2C+India" target="_blank" rel="noreferrer">View directions</a></div></div>
+          </article>
+          <article class="invite-event invite-reveal">
+            <div class="invite-event__image"><img src="./img_04.png" alt="Maninder and Amanpreet at their reception" loading="lazy" /></div>
+            <div class="invite-event__copy"><h3>Reception</h3><div class="invite-event__rule"></div><p>DD Month YYYY</p><p>00:00 PM onwards</p><p>Venue Name, Punjab</p><div class="invite-event__actions"><button class="invite-event__action" type="button" data-calendar-event="Reception">Add to calendar</button><a class="invite-event__action" href="https://www.google.com/maps/search/?api=1&amp;query=Venue+Name%2C+Punjab%2C+India" target="_blank" rel="noreferrer">View directions</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="invite-calendar-dialog" id="invite-calendar-dialog" aria-labelledby="invite-calendar-heading">
+      <h2 id="invite-calendar-heading">Add to Calendar</h2>
+      <p id="invite-calendar-event">Wedding celebration</p>
+      <form class="invite-calendar-form" id="invite-calendar-form">
+        <label>Date<input name="date" type="date" required /></label>
+        <label>Start time<input name="time" type="time" required /></label>
+        <label>Venue<input name="venue" type="text" placeholder="Venue Name, Punjab" /></label>
+        <p class="invite-calendar-status" id="invite-calendar-status" role="status" aria-live="polite"></p>
+        <div class="invite-calendar-dialog__actions">
+          <button type="button" id="invite-calendar-cancel">Cancel</button>
+          <button type="submit">Download calendar event</button>
+        </div>
+      </form>
+    </dialog>
+
+    <section class="invite-section invite-gallery" id="memories" aria-labelledby="gallery-heading">
+      <div class="invite-shell">
+        <header class="invite-center-heading invite-reveal">
+          <span class="invite-eyebrow">A few memories before the big day</span>
+          <h2 class="invite-heading" id="gallery-heading">Moments We <em>Cherish</em></h2>
+        </header>
+        <div class="invite-gallery-grid">
+          <figure class="invite-gallery-item invite-reveal"><img class="invite-parallax" src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1000&q=85" alt="A couple sharing a quiet moment" loading="lazy" /><figcaption>Together, always</figcaption></figure>
+          <figure class="invite-gallery-item invite-reveal"><img class="invite-parallax" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=85" alt="A candid wedding celebration" loading="lazy" /><figcaption>A moment to remember</figcaption></figure>
+          <figure class="invite-gallery-item invite-reveal"><img class="invite-parallax" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85" alt="A gathering of soft garden flowers" loading="lazy" /><figcaption>In full bloom</figcaption></figure>
+          <figure class="invite-gallery-item invite-reveal"><img class="invite-parallax" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=85" alt="Friends and family gathered for a celebration" loading="lazy" /><figcaption>Our favourite people</figcaption></figure>
+          <figure class="invite-gallery-item invite-reveal"><img class="invite-parallax" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=85" alt="Wedding lights and festive details" loading="lazy" /><figcaption>The beginning of forever</figcaption></figure>
+          <figure class="invite-gallery-item invite-reveal"><img class="invite-parallax" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=85" alt="A warm countryside landscape at golden hour" loading="lazy" /><figcaption>Where our story feels like home</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section invite-families" aria-labelledby="families-heading">
+      <div class="invite-shell">
+        <header class="invite-center-heading invite-reveal">
+          <span class="invite-eyebrow">Two families &bull; one beautiful beginning</span>
+          <h2 class="invite-heading" id="families-heading">With Love &amp; Blessings</h2>
+        </header>
+        <div class="invite-family-grid">
+          <article class="invite-family invite-reveal"><h3>The Singh Family</h3><p>With love from</p><strong>Family names<br />to be added</strong></article>
+          <img class="invite-family-seal invite-reveal" src="./ele3.png" alt="" aria-hidden="true" loading="lazy" />
+          <article class="invite-family invite-reveal"><h3>The Kaur Family</h3><p>With love from</p><strong>Family names<br />to be added</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section invite-location" id="venue" aria-labelledby="location-heading">
+      <div class="invite-shell">
+        <header class="invite-center-heading invite-reveal">
+          <span class="invite-eyebrow">Come celebrate with us</span>
+          <h2 class="invite-heading" id="location-heading">The Celebration Awaits</h2>
+        </header>
+        <div class="invite-location-card invite-reveal">
+          <div class="invite-location-card__image invite-parallax" role="img" aria-label="Golden countryside near the celebration venue"></div>
+          <div class="invite-location-card__copy">
+            <span class="invite-eyebrow">A place for our people</span>
+            <h3>Venue Name</h3>
+            <p>Full Venue Address<br />Punjab, India</p>
+            <svg width="150" height="30" viewBox="0 0 150 30" fill="none" aria-hidden="true"><path d="M2 20C18 20 12 7 31 7s14 18 32 18 17-16 35-16 15 10 28 10h22" stroke="#F8E8C8" stroke-opacity=".7" stroke-width="1" stroke-dasharray="3 5"/><circle cx="3" cy="20" r="2.5" fill="#F8E8C8"/><circle cx="148" cy="19" r="3" fill="#B85C35"/></svg>
+            <a class="invite-seal-button" href="https://www.google.com/maps/search/?api=1&amp;query=Venue+Name%2C+Punjab%2C+India" target="_blank" rel="noreferrer">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section invite-rsvp" id="rsvp" aria-labelledby="rsvp-heading">
+      <div class="invite-shell">
+        <div class="invite-rsvp-card invite-reveal">
+          <span class="invite-eyebrow">A note for the happy couple</span>
+          <h2 id="rsvp-heading">Will You Join Us?</h2>
+          <p>Your presence is the greatest gift.</p>
+          <form class="invite-rsvp-form">
+            <div class="invite-field"><label for="invite-guest-name">Name</label><input id="invite-guest-name" name="guest-name" type="text" autocomplete="name" placeholder="Your name" required /></div>
+            <div class="invite-field"><label for="invite-guest-count">Number of Guests</label><select id="invite-guest-count" name="guest-count" required><option value="" selected disabled>Select guests</option><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></div>
+            <fieldset><legend>Will you be joining us?</legend><div class="invite-rsvp-choices"><button class="invite-rsvp-choice" type="button" data-response="yes" aria-pressed="false">Yes, I'll be there</button><button class="invite-rsvp-choice" type="button" data-response="no" aria-pressed="false">Sorry, can't make it</button></div></fieldset>
+            <p class="invite-rsvp-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section invite-finale" aria-labelledby="finale-heading">
+      <div class="invite-finale__copy invite-reveal">
+        <p>WITH JOY IN OUR HEARTS</p>
+        <h2 id="finale-heading">And So,<br />A New Chapter Begins...</h2>
+        <div class="invite-finale__names">Maninder Singh <span>&amp;</span> Amanpreet Kaur</div>
+        <div class="invite-ornament" aria-hidden="true" style="margin-right:auto;margin-left:auto"><img src="./ele3.png" alt="" /></div>
+        <p>With love, laughter &amp; countless memories to come.</p>
+      </div>
+    </section>
+
+    <footer class="invite-footer">
+      <p class="invite-footer__name">Maninder Singh &amp; Amanpreet Kaur</p>
+      <p class="invite-footer__note">Made with love &amp; memories</p>
+      <a class="invite-footer__social" href="https://www.instagram.com/makemymemory.store/" target="_blank" rel="noreferrer" aria-label="Visit MakeMyMemory on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+        @makemymemory.store
+      </a>
+      <p class="invite-footer__copyright">&copy; MakeMyMemory</p>
+    </footer>
+  </div>
+
+  <script>
+    const inviteSite = document.querySelector(".invite-site");
+    const revealItems = document.querySelectorAll(".invite-reveal");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    inviteSite.classList.add("has-reveal");
+
+    const revealVisibleItems = () => {
+      revealItems.forEach(item => {
+        const bounds = item.getBoundingClientRect();
+        if (bounds.top < window.innerHeight * .9 && bounds.bottom > 0) {
+          item.classList.add("is-visible");
+        }
+      });
+    };
+
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("is-visible"));
+    }
+
+    window.addEventListener("scroll", revealVisibleItems, { passive: true });
+    window.addEventListener("resize", revealVisibleItems);
+    revealVisibleItems();
+
+    const rsvpForm = document.querySelector(".invite-rsvp-form");
+    const rsvpButtons = rsvpForm.querySelectorAll(".invite-rsvp-choice");
+    const rsvpStatus = rsvpForm.querySelector(".invite-rsvp-status");
+
+    const cultureStill = document.querySelector(".invite-culture__still");
+    const setCultureFrame = () => {
+      if (cultureStill.duration > 5.34) cultureStill.currentTime = 5.34;
+    };
+
+    if (cultureStill.readyState >= 1) {
+      setCultureFrame();
+    } else {
+      cultureStill.addEventListener("loadedmetadata", setCultureFrame, { once: true });
+    }
+
+    const calendarDialog = document.querySelector("#invite-calendar-dialog");
+    const calendarForm = document.querySelector("#invite-calendar-form");
+    const calendarEventName = document.querySelector("#invite-calendar-event");
+    const calendarStatus = document.querySelector("#invite-calendar-status");
+    let selectedCalendarEvent = "";
+
+    document.querySelectorAll("[data-calendar-event]").forEach(button => {
+      button.addEventListener("click", () => {
+        selectedCalendarEvent = button.dataset.calendarEvent;
+        calendarEventName.textContent = selectedCalendarEvent;
+        calendarForm.reset();
+        calendarStatus.textContent = "";
+        calendarDialog.showModal();
+      });
+    });
+
+    document.querySelector("#invite-calendar-cancel").addEventListener("click", () => {
+      calendarDialog.close();
+    });
+
+    const formatCalendarDate = date => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+    const escapeCalendarText = value => value
+      .replace(/\\/g, "\\\\")
+      .replace(/\r?\n/g, "\\n")
+      .replace(/,/g, "\\,")
+      .replace(/;/g, "\\;");
+
+    calendarForm.addEventListener("submit", event => {
+      event.preventDefault();
+      if (!calendarForm.reportValidity()) return;
+
+      const formData = new FormData(calendarForm);
+      const start = new Date(`${formData.get("date")}T${formData.get("time")}:00`);
+      if (Number.isNaN(start.getTime())) return;
+
+      const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+      const venue = formData.get("venue").trim() || "Venue Name, Punjab";
+      const eventLines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//MakeMyMemory//Wedding Invitation//EN",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VEVENT",
+        `UID:${Date.now()}@makemymemory.store`,
+        `DTSTAMP:${formatCalendarDate(new Date())}`,
+        `DTSTART:${formatCalendarDate(start)}`,
+        `DTEND:${formatCalendarDate(end)}`,
+        `SUMMARY:${escapeCalendarText(`${selectedCalendarEvent} - Maninder Singh & Amanpreet Kaur`)}`,
+        `LOCATION:${escapeCalendarText(venue)}`,
+        "DESCRIPTION:Wedding celebration for Maninder Singh and Amanpreet Kaur",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ];
+      const calendarBlob = new Blob([eventLines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+      const downloadUrl = URL.createObjectURL(calendarBlob);
+      const downloadLink = document.createElement("a");
+      downloadLink.href = downloadUrl;
+      downloadLink.download = `${selectedCalendarEvent.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.ics`;
+      document.body.append(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+      calendarStatus.textContent = "Calendar event downloaded.";
+    });
+
+    rsvpButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const nameField = rsvpForm.querySelector("#invite-guest-name");
+        const guestField = rsvpForm.querySelector("#invite-guest-count");
+
+        if (!nameField.reportValidity() || !guestField.reportValidity()) return;
+
+        rsvpButtons.forEach(choice => choice.setAttribute("aria-pressed", String(choice === button)));
+        rsvpStatus.textContent = button.dataset.response === "yes"
+          ? `Thank you, ${nameField.value.trim()}. We look forward to celebrating with you.`
+          : `Thank you, ${nameField.value.trim()}. Your reply has been noted.`;
+      });
+    });
+
+    if (!reducedMotion) {
+      const parallaxItems = document.querySelectorAll(".invite-parallax");
+      let parallaxFrame = 0;
+
+      const updateParallax = () => {
+        parallaxFrame = 0;
+        parallaxItems.forEach(item => {
+          const bounds = item.getBoundingClientRect();
+          if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
+          const offset = (window.innerHeight / 2 - (bounds.top + bounds.height / 2)) * .025;
+          item.style.setProperty("--invite-parallax-y", `${offset.toFixed(1)}px`);
+        });
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!parallaxFrame) parallaxFrame = requestAnimationFrame(updateParallax);
+      }, { passive: true });
+
+      updateParallax();
+    }
+  </script>
+
+</body>
+</html>
