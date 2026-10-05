@@ -91,6 +91,86 @@
       object-fit: cover;
     }
 
+    .hero-start {
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px max(28px, 7vh);
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .hero-start__label {
+      padding: 12px 22px;
+      border: 1px solid rgba(255, 255, 255, .75);
+      border-radius: 999px;
+      background: rgba(26, 22, 18, .55);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero-start:focus-visible .hero-start__label {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .wedding-hero.is-playing .hero-start {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      z-index: 8;
+      bottom: max(22px, env(safe-area-inset-bottom));
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: calc(100% - 32px);
+      padding: 12px 18px;
+      transform: translate(-50%, 8px);
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 999px;
+      background: rgba(26, 22, 18, .76);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-align: center;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero-scroll-hint__arrow {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 8px;
+      transform: rotate(45deg) translateY(-2px);
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .wedding-hero.is-ended .hero-scroll-hint {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      visibility: visible;
+    }
+
     .top-decoration-image {
       position: absolute;
       top: 0;
@@ -1711,10 +1791,17 @@
 
   <main class="wedding-hero">
 
-    <video class="hero-video" autoplay muted preload="auto" playsinline webkit-playsinline aria-hidden="true" tabindex="-1">
+    <video class="hero-video" muted preload="metadata" playsinline webkit-playsinline aria-hidden="true" tabindex="-1">
       <source src="./video_1.mp4" type="video/mp4" />
     </video>
     <audio class="wedding-audio" src="./Tu%20Te%20Main.mp3" preload="auto" loop aria-hidden="true"></audio>
+    <button class="hero-start" type="button" aria-label="Start the wedding invitation">
+      <span class="hero-start__label">Tap to begin</span>
+    </button>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <span class="hero-scroll-hint__arrow"></span>
+    </div>
 
     <img class="top-decoration-image" src="./ele1.png" alt="" aria-hidden="true" />
     <img class="khanda-image" src="./ele2.png" alt="" aria-hidden="true" />
@@ -1790,6 +1877,7 @@
     const heroVideo = document.querySelector(".hero-video");
     const weddingAudio = document.querySelector(".wedding-audio");
     const weddingHero = document.querySelector(".wedding-hero");
+    const heroStartButton = document.querySelector(".hero-start");
     const revealAt = 5.34;
 
     const revealInvitation = () => {
@@ -1804,18 +1892,32 @@
     };
 
     heroVideo.addEventListener("playing", revealInvitation);
+    heroVideo.addEventListener("playing", () => {
+      weddingHero.classList.add("is-playing");
+    });
 
     heroVideo.addEventListener("ended", () => {
+      weddingHero.classList.add("is-ended");
       document.documentElement.classList.remove("invitation-locked");
       document.body.classList.remove("invitation-locked");
     });
 
-    document.addEventListener("click", () => {
-      heroVideo.currentTime = 0;
-      weddingAudio.currentTime = 0;
-      heroVideo.play().catch(() => {});
-      weddingAudio.play().catch(() => {});
-    }, { once: true });
+    let invitationStarted = false;
+    heroStartButton.addEventListener("click", () => {
+      if (invitationStarted) return;
+
+      invitationStarted = true;
+      heroStartButton.disabled = true;
+      const videoPlayback = heroVideo.play();
+      const audioPlayback = weddingAudio.play();
+
+      Promise.all([videoPlayback, audioPlayback]).catch(() => {
+        heroVideo.pause();
+        weddingAudio.pause();
+        invitationStarted = false;
+        heroStartButton.disabled = false;
+      });
+    });
   </script>
 
   <div class="invite-site">
